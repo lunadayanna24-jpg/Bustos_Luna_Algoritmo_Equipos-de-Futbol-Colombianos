@@ -1,28 +1,48 @@
 :root {
-  --bg: #0b0b0b;
-  --panel: #111;
-  --border: #242424;
+  --bg: #000000;
+  --panel: #0a1f44;
+  --panel2: #102a5c;
+  --border: #1b3a75;
   --text: #ffffff;
-  --muted: rgba(255,255,255,.7);
-  --green: #00c853;
+  --muted: rgba(255,255,255,.75);
+  --blue: #1e90ff;
+  --blue2: #3aa0ff;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
 }
+
+/* ===================== */
+/* Base */
+/* ===================== */
 
 body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: system-ui;
 }
 
 .wrap {
   max-width: 1000px;
-  margin: auto;
+  margin: 0 auto;
   padding: 20px;
 }
+
+h1, h2 {
+  color: var(--text);
+}
+
+.sub {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ===================== */
+/* Layout */
+/* ===================== */
 
 .grid {
   display: grid;
   gap: 15px;
+  grid-template-columns: 1fr;
 }
 
 @media (min-width: 900px) {
@@ -34,49 +54,144 @@ body {
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 15px;
+  color: var(--text);
+}
+
+/* ===================== */
+/* Select */
+/* ===================== */
+
+label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: var(--muted);
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--panel2);
+  color: #ffffff;
+  outline: none;
+  font-weight: 600;
+}
+
+select:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 2px rgba(30,144,255,.3);
+}
+
+/* ===================== */
+/* Botones */
+/* ===================== */
+
+.row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
 }
 
 button {
   cursor: pointer;
-  border: none;
-  padding: 10px;
-  border-radius: 10px;
-  font-weight: bold;
+  border: 0;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-weight: 700;
+  font-size: 14px;
 }
 
 .primary {
-  background: var(--green);
-  color: black;
+  background: var(--blue);
+  color: #000;
+}
+
+.primary:hover {
+  background: var(--blue2);
 }
 
 .ghost {
-  background: #222;
-  color: white;
+  background: var(--panel2);
+  color: #ffffff;
   border: 1px solid var(--border);
 }
 
 .danger {
-  background: #b32121;
+  background: #8b0000;
   color: white;
 }
 
+/* ===================== */
+/* Zona de votación */
+/* ===================== */
+
+.question {
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff; /* FORZAMOS BLANCO */
+}
+
+.duel {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+@media (min-width: 900px){
+  .duel { grid-template-columns: 1fr 1fr; }
+}
+
 .pick {
-  background: #1a1a1a;
+  background: var(--panel2);
   border: 1px solid var(--border);
   text-align: left;
-  padding: 15px;
+  padding: 16px;
+  color: #ffffff; /* FORZAMOS BLANCO */
+  font-size: 15px;
 }
 
 .pick:hover {
-  border-color: var(--green);
+  border-color: var(--blue);
+  transform: scale(1.02);
+  transition: 0.2s ease;
 }
 
 .tag {
-  background: var(--green);
-  color: black;
-  padding: 5px 8px;
-  border-radius: 6px;
-  margin-right: 8px;
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 28px;
+  margin-right: 10px;
+  background: var(--blue);
+  color: #000;
+  font-weight: 900;
+}
+
+.title {
+  color: #ffffff; /* ASEGURA VISIBILIDAD */
+  font-weight: 600;
+}
+
+/* ===================== */
+/* Ranking */
+/* ===================== */
+
+.topbox {
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px;
+  min-height: 120px;
+  color: #ffffff;
 }
 
 .toprow {
@@ -84,4 +199,22 @@ button {
   justify-content: space-between;
   padding: 8px;
   border-bottom: 1px solid var(--border);
+}
+
+.toprow:last-child { 
+  border-bottom: 0; 
+}
+
+/* ===================== */
+/* Footer */
+/* ===================== */
+
+.hint {
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+.foot {
+  color: var(--muted);
+  padding-bottom: 30px;
 }

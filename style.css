@@ -1,0 +1,87 @@
+:root {
+  --bg: #0b0b0b;
+  --panel: #111;
+  --border: #242424;
+  --text: #ffffff;
+  --muted: rgba(255,255,255,.7);
+  --green: #00c853;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui;
+}
+
+.wrap {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+.grid {
+  display: grid;
+  gap: 15px;
+}
+
+@media (min-width: 900px) {
+  .grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 15px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.primary {
+  background: var(--green);
+  color: black;
+}
+
+.ghost {
+  background: #222;
+  color: white;
+  border: 1px solid var(--border);
+}
+
+.danger {
+  background: #b32121;
+  color: white;
+}
+
+.pick {
+  background: #1a1a1a;
+  border: 1px solid var(--border);
+  text-align: left;
+  padding: 15px;
+}
+
+.pick:hover {
+  border-color: var(--green);
+}
+
+.tag {
+  background: var(--green);
+  color: black;
+  padding: 5px 8px;
+  border-radius: 6px;
+  margin-right: 8px;
+}
+
+.toprow {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  border-bottom: 1px solid var(--border);
+}
